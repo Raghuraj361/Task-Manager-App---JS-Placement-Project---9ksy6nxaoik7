@@ -5,86 +5,78 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Manager</title>
-    <link rel = "stylesheet" href = "main.css">
-    <!-- font awesome icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <!-- form modal -->
-    <div id = "fullscreen-div"></div>
-    <form class = "modal" id = "modal">
-        <div class = "modal-content">
-            <div class = "modal-head">
-                <h3 id = "modal-title">Add Task</h3>
-                <button type="button" id = "close-btn">
-                    <i class = "fas fa-times"></i>
-                </button>
-            </div>
-            <div class = "modal-main">
-                <div class = "modal-row">
-                    <div class = "modal-col">
-                        <label for="">TITLE</label>
-                        <input type = "text" placeholder="Title of your note" class = "form-control" name = "addr_ing_name">
-                    </div>
-                </div>
 
-
-                <div class = "modal-row grid-row">
-                    <div class = "modal-col">
-                        <label for="">Discription</label>
-                        <textarea type = "text" placeholder="discription of your notes" class = "form-control" name = "street_addr" cols="40" rows="10"></textarea>
-                    </div>
-                </div>
-
-                <div class = "modal-row">
-                    <div class = "modal-col">
-                        <label for = "">Labels</label>
-                        <select name = "labels">
-                            <option value = "start">start</option>
-                            <option value = "reviwe">in reviwe</option>
-                            <option value = "process">in process</option>
-                            <option value = "done">done</option>
-                        </select>
-                    </div>
-                </div>
-
-                <div class = "modal-row" id = "modal-btns">
-                    <button type = "submit" id = "save-btn">Save</button>
+    <div class="container">
+        <div>
+            <!--============ add task button ========================-->
+            <button id="btn">Add Task</button>
+        
+            <!--============== The Modal box =========================-->
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <div class="style-model-box">
+                        <div>
+                            <label for="text">Title</label>
+                            <input type="text" name="text" class="text-input" id="input-area" >
+                        </div>
+                        <div>
+                            <label for="text" class="discription">Discription</label>
+                            <textarea name="text" class="areatext" id="text" cols="4" ></textarea>
+                        </div>
+                        <div class="modal-button">
+                            <button type="button" id="addbtn">Add</button>
+                            <button type="button" id="cancelbtn">Cancel</button>
+                        </div>
+                    </div>  
                 </div>
             </div>
         </div>
-    </form>
-    <!-- end of form modal -->
 
-    <!-- address book home -->
-    <div class = "addr-book" id = "addr-book">
-        <div class = "addr-book-content">
-            <div class = "addr-book-head">
-                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list-task" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd" d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5H2zM3 3H2v1h1V3z"/>
-                    <path d="M5 3.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zM5.5 7a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9zm0 4a.5.5 0 0 0 0 1h9a.5.5 0 0 0 0-1h-9z"/>
-                    <path fill-rule="evenodd" d="M1.5 7a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H2a.5.5 0 0 1-.5-.5V7zM2 7h1v1H2V7zm0 3.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5H2zm1 .5H2v1h1v-1z"/>
-                </svg> 
-                 <h2>Task<span>Manager</span></h2>
+        <hr>
+     <!-- ===============drag & drop====================== -->
+ 
+        <div class="todo-container">
+            <div class="list_container open">
+               <h2>Open</h2>
             </div>
-
-            <div class = "addr-book-top">
-                <button type = "button" class = "btn" id = "add-btn">
-                    <span><i class = "fas fa-plus"></i>ADD NEW TASK</span>
-                </button>
+            <div class="list_container inProgress">
+               <h2>In Progress</h2>
             </div>
-
-            <div class = "addr-book-list" id = "addr-book-list">
-               <div class="stages" >
-                <div class="start" id="container"> <h2>  OPEN</h2></div>
-                <div class="process" id="container"> <h2>  IN PROGRESS</h2></div>
-                <div class="reviwe" id="container"> <h2>  IN REVIEW</h2></div>
-                <div class="done" id="container"> <h2>  DONE</h2></div>    
+            <div class="list_container inReview">
+               <h2>In Review</h2>
             </div>
+            <div class="list_container done">
+               <h2>Done</h2>
+            </div>
+        </div> 
+       
+        <div id="myModalA" class="modalA">
+            <div class="modalA-contentA">
+                <span class="closeA">&times;</span>
+                <div class="styleA-modelA-boxA">
+                    <div>
+                        <label for="text">Title</label>
+                        <input type="text" name="text" class="AtextA-inputA" id="input-areaA">
+                    </div>
+                    <div>
+                        <label for="text" >Discription</label>
+                        <textarea name="text" class="areatextA" id="textA" cols="4"></textarea>
+                    </div>
+                    <div class="modalA-buttonA">
+                        <button type="button" id="editbtnA" onclick="editData(event)">Edit</button>
+                        <button type="button" id="cancelbtnA">Cancel</button>
+                    </div>
+                </div>  
             </div>
         </div>
+
     </div>
-    <!-- end of address book home -->
-    <script src = "app.js"></script>
+      
+    <script src="App.js"></script>
 </body>
 </html>
