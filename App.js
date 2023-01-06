@@ -1,154 +1,133 @@
+let taskHeading = document.querySelector(".task-heading");
+let input = document.querySelector(".add-input");
+let button = document.querySelector(".add-btn");
+const containerList = document.querySelector(".container-list");
+const modle_container = document.querySelector('.modle-container');
+
+input.setAttribute("placeholder", "Please Enter Task");
 
 
-//======================== DRAG & DROP ==========================
+function addTask() {
+    if(input.value === "") {
+        alert("please enter task");
+    }
+    else {
+    let inputValue = input.value;
 
-const input = document.querySelector('.text-input');
-const area  = document.querySelector('.areatext');
-const addButton = document.getElementById('addbtn');
-const listContainer = document.querySelector('.list_container');
+    const openList = document.createElement('div');
+    openList.classList = "container-list1-item";
+    const nameOfTask = document.createElement('h4');
+    nameOfTask.innerText = inputValue;
+    const descriptionOfTask = document.createElement('p');
+    descriptionOfTask.classList = "description";
+    // const desDiv = document.createElement('div');
+    // desDiv.classList = "desc-div";
+    // desDiv.appendChild(descriptionOfTask);
 
-// const editTask = function(event) {
-//   var modalA = document.getElementById("myModalA");
-//   var spanA = document.getElementsByClassName("closeA")[0];
-//   var editButtonA = document.getElementById('editbtnA');
-//   var cancelA = document.getElementById('cancelbtnA');
-//   const titleA = document.querySelector('#input-areaA');
-//  const descriptionA = document.querySelector('#textA');
-
-// modalA.style.display = 'block';
-// // console.log(event.target.parentNode.parentNode);
-//   let parent = event.target.parentNode.parentNode;
-//   let title = parent.firstChild;
-//   // console.log(title.nextElementSibling);
-//   let description =  title.nextElementSibling;
-//   titleA.value = title.innerText;
-//   descriptionA.value = description.innerText;
-
-//   //  const editData = function(descriptionA, titleA, title, description, event) {
-//   //   description.innerText = descriptionA.value;
-//   //   title.innerText = titleA.value;
-//   // }
-// }
-
-// const editData = function(event) {
-//   // description.innerText = descriptionA.value;
-//   // title.innerText = titleA.value;
-//   // console.log(event.target.parentNode.parentNode.firstElementChild.lastElementChild.value);
-//   let data = saveData(event);
-//   console.log(data[1][0].innerText);
-//   console.log(data[0][0].innerText);
-// }
-// const saveData = function(event) {
-//   let  taskData = [];
-//   let  areaData = [];
-//   let taskTitle = event.target.parentNode.parentNode.firstElementChild.lastElementChild.value;
-//   let areaDescription = event.target.parentNode.parentNode.firstElementChild.lastElementChild.value;
-//    const Tasks = document.querySelectorAll('.todo_card .task');
-//   const Areas = document.querySelectorAll('.todo_card .area');
-//   for (let i = 0; i < Tasks.length; i++) {
-//     const Task = Tasks[i];
-//     if (taskTitle == Task.innerText) {
-//       taskData.push(Task);
-//     }
-//   }
-//   for (let i = 0; i < Areas.length; i++) {
-//     const area = Areas[i];
-//     if (areaDescription == area.innerText) {
-//       areaData.push(area);
-//     }
-//   }
-//   return [taskData, areaData];
-// }
+    const deleteTask = document.createElement('button');
+    deleteTask.classList = "delete";
+    deleteTask.innerText = "";
+    const itemColor = document.createElement('div');
+    itemColor.classList.add('item-color');
+    openList.appendChild(itemColor);
+    // const descBtn = document.createElement('div');
+    // descBtn.classList.add('desc-btn');
+    // // add paragraph using modal
+    // descriptionOfTask.appendChild(descBtn);
+    // descBtn.addEventListener('click', function () {
+    //     openList.remove();
+    // });
 
 
-// const editTodo = function(editTask) {
-//   const todoCard = document.querySelectorAll('.todo_card');
-//   const Tasks = document.querySelectorAll('.todo_card .task');
-//   const Areas = document.querySelectorAll('.todo_card .area');
-//   const editIcons = document.querySelectorAll('#editIcon');
- 
-//   console.log(todoCard);
-//   console.log(Tasks);
-//   console.log(Areas);
-//   console.log(editIcons);
-// }
 
-addButton.addEventListener('click', ()=> {
-  
-    let string = "";
-    const div = document.createElement('div');
-    div.innerHTML = `<div class='task'>${input.value}</div> 
-    <div class='area'>${area.value}</div>` 
-    div.classList.add('todo_card');
-    div.classList.add('draggable');
-    div.setAttribute('draggable', true);
-    div.addEventListener('dragstart', ()=> {
-      setTimeout(() => {
-        div.classList.add('dragging');
-      }, 0);   
+    openList.append(nameOfTask, descriptionOfTask, deleteTask)
+    containerList.appendChild(openList);
+
+    deleteTask.addEventListener('click', (e) => {
+        e.stopPropagation()
+        openList.remove();
+    })
+    editModel(openList, nameOfTask, descriptionOfTask);
+    input.value = null;
+
+    openList.setAttribute("draggable", "true");
+    openList.addEventListener('dragstart', () => {
+        openList.classList.add('dragging');
     });
-    div.addEventListener('dragend', ()=> {
-      setTimeout(() => {
-        div.classList.remove('dragging');
-      }, 0);
+    openList.addEventListener('dragend', () => {
+        openList.classList.remove('dragging');
     });
-      listContainer.appendChild(div);
-      editTodo();
-});
 
+    const listcontainer = document.querySelectorAll('.container-list');
+    listcontainer.forEach((list) => {
+        list.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            const draggingElm = document.querySelector('.dragging');
+            list.appendChild(draggingElm);
+        })
+    })
 
-
-const listBox = document.querySelectorAll('.list_container');
-
-listBox.forEach((list) => {
-  list.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    const draggingEle = document.querySelector('.dragging');
-    list.appendChild(draggingEle);
-  })
-  list.addEventListener('dragenter', (e) => {
-  })
-  list.addEventListener('dragleave', (e) => {
-  })
-  list.addEventListener('drop', (e) => {
-  })
-})
-
-// =========== MODAL BOX ===================
-
-// Get the modal
-var modal = document.getElementById("myModal");
-// Get the button that opens the modal
-var myBtn = document.getElementById("btn");
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-var cancel = document.getElementById('cancelbtn');
-
-const title = document.querySelector('#input-area');
-const description = document.querySelector('#text');
- 
-// When the user clicks the button, open the modal 
-myBtn.onclick = function() {
-  title.value = '';
-  description.value = '';
-  modal.style.display = "block";
 }
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-  modal.style.display = "none";
 }
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
+
+function editModel(div, ip, des) {
+    div.addEventListener('dblclick', (e) => {
+        e.stopPropagation()
+        const storeDiv = document.createElement('div');
+        storeDiv.classList = "modle-container-style"
+        const taskLable = document.createElement('lable');
+        taskLable.innerText = "Task Name";
+        const descriptionLable = document.createElement('lable');
+        descriptionLable.innerText = "Description";
+
+        const inputTask = document.createElement('input');
+        inputTask.classList = "editInput";
+        inputTask.setAttribute('id', 'edit1');
+        inputTask.setAttribute('type', 'text');
+        inputTask.value = ip.innerText;
+
+        const textArea = document.createElement('textarea');
+        textArea.classList = "editInput"
+        textArea.setAttribute('cols', '5');
+        textArea.setAttribute('rows', '5');
+        textArea.value = des.innerText;
+
+        const divButton = document.createElement('div');
+        divButton.classList = "buttonDiv";
+
+        const saveBtn = document.createElement('button');
+        saveBtn.classList = "saveButton"
+        saveBtn.innerText = 'save';
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.classList = "deleteButton"
+        deleteBtn.innerText = 'close';
+
+        divButton.appendChild(saveBtn);
+        divButton.appendChild(deleteBtn);
+        storeDiv.append(taskLable, inputTask, descriptionLable, textArea, divButton)
+        modle_container.appendChild(storeDiv)
+
+        saveTheEditedValue(saveBtn, ip, des, storeDiv, inputTask, textArea, "save");
+        saveTheEditedValue(deleteBtn, ip, des, storeDiv, inputTask, textArea, "close")
+        console.log(div.childNodes);
+    })
 }
-// when the user click on add button create card or close the modal
-addButton.onclick = function() {
-  modal.style.display = "none";
+
+function saveTheEditedValue(btnFun, child, des, mainDiv, input1, input2, condition) {
+    btnFun.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (condition === "save") {
+            child = input1.value;
+            des.innerText = input2.value;
+            mainDiv.remove();
+        } else {
+            mainDiv.remove();
+        }
+
+    })
 }
-//When the user clicks on cancel, close the modal
-cancel.onclick = function() {
-  modal.style.display = "none";
-}
+   
+
+button.addEventListener('click', addTask)
+
