@@ -1,200 +1,284 @@
-
-
-body {
+*{
   margin: 0;
-  color: white;
-  background-image: url('image/Animation-pic.jpg');
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Times New Roman', Times, serif, Georgia, Times, 'Times New Roman', serif;
+  font-size: 15px;
+}
+body{
+  width: 100%;
+  height:auto;
+  background: url("image/Animation-pic.jpg");
   background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  overflow: hidden;
+  background-color: rgb(47, 99, 82); 
+  position: relative;
 }
-.container {
-  width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+.header{
+  margin-top: 12px;
+  position: relative;
+  left: 420px;
 }
-hr {
-  margin-inline: 20%;
+.add-input{
+  position: relative;
+  top: 5px;
+  right: 65px;
+  width: 520px;
+  height: 51px;
+  border-radius: 6px;
+  border: solid 1px #fff;
+  color: white;
+  padding-left: 6px;
+  font-size: 22px;
+  background: rgba(17, 17, 17, 0.3);
+  
+ 
 }
-
-#btn {
-  width: 7%;
-  margin-top: 50px;
-  margin-bottom: 15px;
+.add-btn{
+  position: relative;
+  top: 3px;
+  right: 10px;
+  height: 51px;
+  width: 110px;
+  border-radius: 6px;
+  cursor: pointer;
   padding: 14px;
-  border-radius: 5px;
   border: none;
   background-color: rgb(221, 4, 59, 0.2);
   color: #fff;
   box-shadow: 8px 6px 12px blue;
 }
-#btn:hover {
+.add-btn:hover {
   background-color: #ff004f;
   cursor: pointer;
 }
-
-
-/* ====================== MODAL BOX ============================ */
-
-.modal {
-  display: none; 
-  position: fixed; 
-  z-index: 1; /* Sit on top */
-  padding-top: 100px; 
-  left: 0;
-  top: 0;
-  width: 100%; 
-  height: 100%; 
-  overflow: auto; 
-  background-color: rgb(0,0,0); 
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+.container{
+ display: flex;
+ justify-content: space-around;
+ margin-top: 70px;
 }
-
-/* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 22px;
-  border: 1px solid #888;
-  border-radius: 4px;
-  width: 25%;
-  height: 37vh;
+.container-list{
+  width: 320px;
+  height: 470px;
+  background-color: rgba(242, 233, 233, 0.259);
+  border-radius:5px ;
 }
-
-/* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+#box1{
+  margin: 4px;
+  text-align: center;
+  background-color: rgb(0,0,0, 0.4);
+  box-shadow: 8px 6px 12px blue;
 }
+#box2{
+  margin: 4px;
+  text-align: center;
+  background-color: rgb(0,0,0, 0.4);
+  box-shadow: 8px 6px 12px blue;
+}
+#box3{
+  margin: 4px;
+  text-align: center;
+  background-color: rgb(0,0,0, 0.4);
+  box-shadow: 8px 6px 12px blue;
 
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
+}
+#box4{
+  margin: 4px;
+  text-align: center;
+  background-color: rgb(0,0,0, 0.4);
+  box-shadow: 8px 6px 12px blue;
+
+}
+.heading{
+  margin: 15px;
+}
+.heading h2{
+  color: #fff;
+  font-weight: bolder;
+}
+.container-list1{
+  overflow:auto;
+}
+.container-list1-item{
+  background-color: #ffff;
+  width: 259px;
+  height: 128px;
+  margin-left: 7px;
+  border-radius: 3px;
+  margin-bottom: 5px;
   cursor: pointer;
 }
-.style-model-box {
-  color: black;
-}
-.text-input {
-  width: 80%;
-  padding: 8px;
-  margin-bottom: 2px;
-  margin-left: 10px;
+.item-color{
+  width: 32px;
+  height: 8px;
+  position: relative;
+  left: 6px;
+  top: 5px;
   border-radius: 5px;
+  background-color:#d1b500;
 }
-.areatext {
-  width: 80%;
-  height: 16vh;
-  margin-top: 10px;
-  padding: 5px;
+#box2 .item-color{
+  width: 32px;
+  height: 8px;
+  position: relative;
+  left: 6px;
+  top: 5px;
   border-radius: 5px;
-  font-size: 15px;
+  background-color: #4ae7a6;
 }
-.modal-button {
+#box3 .item-color{
+  width: 32px;
+  height: 8px;
+  position: relative;
+  left: 6px;
+  top: 5px;
+  border-radius: 5px;
+  background-color:solid 3px #3200b1;
+}
+#box4 .item-color{
+  width: 32px;
+  height: 8px;
+  position: relative;
+  left: 6px;
+  top: 5px;
+  border-radius: 5px;
+  background-color: #e75b4a;
+}
+.item-heading{
+margin-top: 3px;
+margin-left: 6px;
+}
+.description{
   display: flex;
   justify-content: space-evenly;
-  margin-top: 15px;
+  width: 278px;
+  height: 40px;
+  overflow: auto;
 }
-#addbtn {
-  margin-left: 64%;
-  padding: 10px;
+.desc-para{
+  background-color: rgba(250, 247, 245, 0.9);
+  width: 248px;
+  height: 67px;
+  padding: 5px;
+  font-size: 4rem;
+ 
+}
+.desc-btn{
+  margin-top: 52px;
+  margin-left: 249px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: solid 3px #d1b500;
+  background-color: #ffffff;
+}
+#box2 .desc-btn{
+  margin-top: 30px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: solid 3px #4ae7a6;
+  background-color: #ffffff;
+}
+#box3 .desc-btn{
+  margin-top: 30px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: solid 3px #3200b1;
+  background-color: #ffffff;
+}
+#box4 .desc-btn{
+  margin-top: 30px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: solid 3px #e74a4a;
+  background-color: #ffffff;
+}
+.dragging{
+ border:  2px dotted cyan;
+}
+
+.modle-container {
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  background-color: rgb(207, 198, 198);
+  width: 30%;
+}
+.editInput {
+  margin: 20px;
+}
+.saveButton {
+  padding: 5px;
   border-radius: 5px;
   border: none;
   background-color: rgb(41, 74, 223);
   color: #fff;
 }
-#cancelbtn {
-    padding: 10px;
-    border-radius: 5px;
-    border: none;
-    background-color: rgb(41, 74, 223);
-    color: #fff;
-}  
-#addbtn:hover {
-    background-color: rgb(221, 4, 59);
-    color: #fff;
-} 
-#cancelbtn:hover {
-    background-color: rgb(221, 4, 59);
-    color: #fff;
-}   
-
-
-/* ===== Drag & drop list ====== */
-
-
-.todo-container {
-  display: flex;
-  justify-content: space-around;
-  margin-top: 20px;
-}
-.list_container {
-  width: 23%;
-   height: 75vh; 
-  padding-top: 5px;
-  text-align: center;
-  font-weight: 900;
-  overflow-y: scroll;
-}
-::-webkit-scrollbar {
-  overflow: auto;
-}
-.open {
-  background-color: rgb(0,0,0, 0.4);
-  box-shadow: 8px 6px 12px blue;
-}
-.inProgress {
-  background-color: rgb(0,0,0, 0.4);
-  box-shadow: 8px 6px 12px blue;
-}
-.inReview {
-  background-color: rgb(0,0,0, 0.4);
-  box-shadow: 8px 6px 12px blue;
-}
-.done {
-  background-color: rgb(0,0,0, 0.4);
-  box-shadow: 8px 6px 12px blue;
-}
-.todo_card {
-  width: 90%;
-  margin: auto;
+.deleteButton {
+  position: absolute;
+  left: 13%;
+  padding: 5px;
   border-radius: 5px;
-  text-align: left;
-  margin-top: 15px; 
-  padding: 10px;
-  background-color: azure;
-  color: black;
-  cursor: pointer; 
-  list-style-type: none;
- 
+  border: none;
+  background-color: rgb(41, 74, 223);
+  color: #fff;
 }
-.icon {
-  width: 5px;
-  height: 5px;
-  padding: 10px;
-}
-.icons {
+
+.modle-container-style {
+  margin: 5px;
   display: flex;
-  justify-content: flex-end;
-  width: 100%;
+  flex-direction: column;
+  color: white;
 }
-.icons button {
-  background: none;
-  outline: none;
+
+lable {
+  color: black;
+  margin: 10px;
+  font-weight: bolder;
 }
-.icon:hover {
-color: red;
+
+.delete {
+  margin-top: 3px;
+  margin-left: 235px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  border: solid 3px #d1b500;
+  background-color: #ffffff;
 }
-.area {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+
+#box2 .delete {
+  border: solid 3px #4ae7a6;
+  margin-top: 12px;
+  margin-left: 235px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ffffff;
 }
-.area:hover {
-  overflow: visible;
+
+#box3 .delete {
+  border: solid 3px #3200b1;
+  margin-top: 12px;
+  margin-left: 235px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ffffff;
+}
+
+#box4 .delete {
+  border: solid 3px #e74a4a;
+  margin-top: 12px;
+  margin-left: 235px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #ffffff;
 }
