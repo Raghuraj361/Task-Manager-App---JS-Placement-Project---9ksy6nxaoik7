@@ -25,4 +25,4 @@ Version 0.1.0
 7. Developed using Plain Javascript, HTML & CSS.
 
 ## Author
-** Sharad Sharma
+** RAGHURAJ SINGH RAJPOOT
