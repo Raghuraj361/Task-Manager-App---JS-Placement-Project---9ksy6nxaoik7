@@ -33,9 +33,7 @@ body{
   color: white;
   padding-left: 6px;
   font-size: 22px;
-  background: rgba(17, 17, 17, 0.3);
-  
- 
+  background: rgba(17, 17, 17, 0.3); 
 }
 .add-btn{
   position: relative;
@@ -83,14 +81,12 @@ body{
   text-align: center;
   background-color: rgb(0,0,0, 0.4);
   box-shadow: 8px 6px 12px blue;
-
 }
 #box4{
   margin: 4px;
   text-align: center;
   background-color: rgb(0,0,0, 0.4);
   box-shadow: 8px 6px 12px blue;
-
 }
 .heading{
   margin: 15px;
@@ -164,45 +160,10 @@ margin-left: 6px;
   height: 67px;
   padding: 5px;
   font-size: 4rem;
- 
-}
-.desc-btn{
-  margin-top: 52px;
-  margin-left: 249px;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: solid 3px #d1b500;
-  background-color: #ffffff;
-}
-#box2 .desc-btn{
-  margin-top: 30px;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: solid 3px #4ae7a6;
-  background-color: #ffffff;
-}
-#box3 .desc-btn{
-  margin-top: 30px;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: solid 3px #3200b1;
-  background-color: #ffffff;
-}
-#box4 .desc-btn{
-  margin-top: 30px;
-  width: 15px;
-  height: 15px;
-  border-radius: 50%;
-  border: solid 3px #e74a4a;
-  background-color: #ffffff;
 }
 .dragging{
  border:  2px dotted cyan;
 }
-
 .modle-container {
   position: absolute;
   top: 25%;
@@ -220,7 +181,7 @@ margin-left: 6px;
   background-color: rgb(41, 74, 223);
   color: #fff;
 }
-.deleteButton {
+.closeButton {
   position: absolute;
   left: 13%;
   padding: 5px;
@@ -229,20 +190,17 @@ margin-left: 6px;
   background-color: rgb(41, 74, 223);
   color: #fff;
 }
-
 .modle-container-style {
   margin: 5px;
   display: flex;
   flex-direction: column;
   color: white;
 }
-
 lable {
   color: black;
   margin: 10px;
   font-weight: bolder;
 }
-
 .delete {
   margin-top: 3px;
   margin-left: 235px;
@@ -252,7 +210,6 @@ lable {
   border: solid 3px #d1b500;
   background-color: #ffffff;
 }
-
 #box2 .delete {
   border: solid 3px #4ae7a6;
   margin-top: 12px;
@@ -262,7 +219,6 @@ lable {
   border-radius: 50%;
   background-color: #ffffff;
 }
-
 #box3 .delete {
   border: solid 3px #3200b1;
   margin-top: 12px;
@@ -272,7 +228,6 @@ lable {
   border-radius: 50%;
   background-color: #ffffff;
 }
-
 #box4 .delete {
   border: solid 3px #e74a4a;
   margin-top: 12px;
@@ -282,3 +237,5 @@ lable {
   border-radius: 50%;
   background-color: #ffffff;
 }
+
+/* end  */
